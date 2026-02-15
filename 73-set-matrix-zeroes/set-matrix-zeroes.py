@@ -5,20 +5,15 @@ class Solution:
         """
         row=len(matrix)
         col=len(matrix[0])
+        r=[-1 for _ in range(row)]
+        c=[-1 for _ in range(col)]
         for i in range(row):
             for j in range(col):
                 if matrix[i][j]==0:
-                    self.infinity(matrix,i,j)
+                    r[i]=0
+                    c[j]=0
         for i in range(row):
             for j in range(col):
-                if matrix[i][j]==float('inf'):
+                if r[i]== 0 or c[j]==0:
                     matrix[i][j]=0
-    def infinity(self,matrix,row,col):
-        r=len(matrix)
-        c=len(matrix[0])
-        for i in range(r):
-            if matrix[i][col] != 0:
-                matrix[i][col]=float('inf')
-        for j in range(c):
-                if matrix[row][j] !=0:
-                    matrix[row][j]=float('inf')
+    
