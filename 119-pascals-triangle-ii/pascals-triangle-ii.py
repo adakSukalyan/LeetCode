@@ -1,7 +1,10 @@
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
-        row = [1]
-        for i in range(1, rowIndex+1):
-            nxtNum = row[i - 1] * (rowIndex - i + 1) // i
-            row.append(nxtNum)
-        return row
+        res=[]
+        for i in range (rowIndex+1):
+            row=[1]*(1+i)
+            for j in range(1,len(row)-1):
+                row[j]=res[i-1][j-1] +res[i-1][j]
+            res.append(row)
+        return res[rowIndex]
+
