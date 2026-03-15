@@ -1,9 +1,6 @@
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
-        max_val=float('-inf')
-        n=len(arr)
-        for i in range(n):
-            if max_val<arr[i]:
-                max_val=arr[i]
-                index=i
-        return index
+        i=0
+        while arr[i] < arr[i+1]:
+            i+=1
+        return i
