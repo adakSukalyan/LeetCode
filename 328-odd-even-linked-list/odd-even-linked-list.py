@@ -12,8 +12,8 @@ class Solution:
         evenhead=even
         while even and even.next:
             odd.next = even.next
-            odd = odd.next
-            even.next = odd.next
+            even.next=even.next.next
             even = even.next
+            odd=odd.next
         odd.next=evenhead
         return head
